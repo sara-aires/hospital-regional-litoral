@@ -31,11 +31,14 @@ def mark_as_notified():
 
 def pdf_exists(url: str) -> bool:
     try:
-        # Requisição HEAD só para verificar existência sem baixar
-        req = urllib.request.Request(url, method="HEAD")
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "Mozilla/5.0"}
+        )
         with urllib.request.urlopen(req, timeout=20) as resp:
             return resp.status == 200
-    except Exception:
+    except Exception as e:
+        print(">>> Erro ao verificar PDF:", e)
         return False
 
 def main():

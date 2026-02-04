@@ -1,9 +1,8 @@
 import os
 import urllib.request
 
-# LINK DO PDF QUE QUER MONITORAR
 PDF_URL = (
-    "https://isgsaude.org.br/hrln/wp-content/uploads/sites/5/2020/10/HRLN-RESULTADO-FINAL-E-CONVOCACAO-TECNICO-DE-TI-4o-LUGAR-004-2025.pdf"
+    "https://isgsaude.org.br/hrln/wp-content/uploads/sites/5/2020/10/HRLN-RESULTADO-FINAL-E-CONVOCACAO-TECNICO-DE-TI-6o-LUGAR-004-2025.pdf"
 )
 
 LAST_FILE = "pdf_notified.txt"
@@ -51,7 +50,7 @@ def main():
             print(">>> Já notificado antes")
             return
 
-        # AVISA NO TELEGRAM
+        
         send_telegram_message(
             f"📄 Convocação encontrada!\n\nVeja o PDF:\n{PDF_URL}"
         )

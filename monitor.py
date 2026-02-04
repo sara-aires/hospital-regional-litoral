@@ -17,9 +17,12 @@ def send_telegram_message(token, chat_id, text):
     }).encode("utf-8")
 
     req = urllib.request.Request(url, data=data, method="POST")
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        resp.read()
 
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        print(">>> RESPOSTA DO TELEGRAM <<<")
+        print(body)
+        
 def main():
     print(">>> MAIN INICIOU <<<")
 
